@@ -10,25 +10,8 @@
  */
 
 ?>
-
-	</div><!-- #content -->
-
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'editorial_wp' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'editorial_wp' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'editorial_wp' ), 'editorial_wp', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+				</div><!-- #inner -->
+			</div><!-- #main -->
 
 			<!-- Sidebar -->
 			<div id="sidebar">
@@ -45,6 +28,15 @@
 						<header class="major">
 							<h2>Menu</h2>
 						</header>
+						<nav id="site-navigation" class="main-navigation">
+							<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'editorial_wp' ); ?></button>
+							<?php
+							wp_nav_menu( array(
+								'theme_location' => 'menu-1',
+								'menu_id'        => 'primary-menu',
+							) );
+							?>
+						</nav><!-- #site-navigation -->
 						<ul>
 							<li><a href="index.html">Homepage</a></li>
 							<li><a href="generic.html">Generic</a></li>
@@ -115,6 +107,17 @@
 
 					<!-- Footer -->
 					<footer id="footer">
+						<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'editorial_wp' ) ); ?>">
+							<?php
+							/* translators: %s: CMS name, i.e. WordPress. */
+							printf( esc_html__( 'Proudly powered by %s', 'editorial_wp' ), 'WordPress' );
+							?>
+						</a>
+						<span class="sep"> | </span>
+							<?php
+							/* translators: 1: Theme name, 2: Theme author. */
+							printf( esc_html__( 'Theme: %1$s by %2$s.', 'editorial_wp' ), 'editorial_wp', '<a href="http://underscores.me/">Underscores.me</a>' );
+							?>
 						<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 					</footer><!-- #footer -->
 				</div><!-- #inner -->
