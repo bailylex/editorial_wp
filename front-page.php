@@ -15,11 +15,14 @@ get_header();
 <!-- Banner plugin -->
 <!-- Section plugin -->
 
-<!-- Posts -->
 <section>
+	<?php if (get_theme_mod('editorial_wp_front_posts_title')): ?>
 	<header class="major">
-		<h2>Ipsum sed dolor</h2>
-	</header>
+		<h2><?php echo get_theme_mod('editorial_wp_front_posts_title'); ?></h2>
+	</header><!-- .major -->
+	<?php endif; ?>
+
+	<!-- Posts -->
 	<div class="posts">
 		<?php
 		if (have_posts()):
@@ -42,8 +45,8 @@ get_header();
 		endif;
 		wp_reset_query();
 		?>
-	</div>
-</section><!-- #posts -->
+	</div><!-- .posts -->
+</section>
 
 <?php
 get_sidebar();

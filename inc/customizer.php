@@ -25,6 +25,18 @@ function editorial_wp_customize_register( $wp_customize ) {
 			'render_callback' => 'editorial_wp_customize_partial_blogdescription',
 		) );
 	}
+
+	// Home posts section title
+	$wp_customize->add_section('editorial_wp_front_posts_title_section', array(
+		'title'    => __('Posts section title'),
+		'priority' => 100
+	));
+	$wp_customize->add_setting('editorial_wp_front_posts_title');
+	$wp_customize->add_control('editorial_wp_front_posts_title', array(
+		'type' => 'text',
+		'section' => 'editorial_wp_front_posts_title_section',
+		'label' => __('Title')
+	));
 }
 add_action( 'customize_register', 'editorial_wp_customize_register' );
 
