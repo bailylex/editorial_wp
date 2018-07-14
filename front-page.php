@@ -28,13 +28,13 @@ get_header();
 		?>
 		<article>
 			<!-- Thumbnail -->
-			<?php if ( has_post_thumbnail() ) : ?>
-			<a href="<?php echo esc_url( get_permalink() ); ?>" class="image"><?php the_post_thumbnail(); ?></a>
+			<?php if (has_post_thumbnail()) : ?>
+			<a href="<?php echo esc_url(get_permalink()); ?>" class="image"><?php the_post_thumbnail(); ?></a>
 			<?php endif; ?><!-- #thumbnail -->
 			<h3><?php the_title(); ?></h3>
 			<?php the_excerpt(); ?>
 			<ul class="actions">
-				<li><a href="#" class="button"><?php printf(esc_html__('More', 'editorial_wp')); ?></a></li>
+				<li><a href="<?php echo esc_url(get_permalink()); ?>" class="button"><?php printf(esc_html__('More', 'editorial_wp')); ?></a></li>
 			</ul>
 		</article><!-- #post -->
 		<?php 

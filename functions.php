@@ -115,6 +115,14 @@ function editorial_wp_more_excerpt( $more ) {
 }
 add_filter( 'excerpt_more', 'editorial_wp_more_excerpt' );
 
+/*
+ * Remove css attributes from thumbnail
+ */
+function editorial_wp_remove_img_attr($html) {
+	return preg_replace('/(width|height)="\d+"\s/', "", $html);
+}
+add_filter('post_thumbnail_html', 'editorial_wp_remove_img_attr');
+
 /**
  * Register widget area.
  *
