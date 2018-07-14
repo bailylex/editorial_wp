@@ -99,6 +99,22 @@ function editorial_wp_content_width() {
 }
 add_action( 'after_setup_theme', 'editorial_wp_content_width', 0 );
 
+/*
+ * Length of excerpt is 22 words.
+ */
+function editorial_wp_excerpt_length( $length ) {
+	return 22;
+}
+add_filter( 'excerpt_length', 'editorial_wp_excerpt_length' );
+
+/* 
+ * Change the excerpt more string
+ */
+function editorial_wp_more_excerpt( $more ) {
+	return null;
+}
+add_filter( 'excerpt_more', 'editorial_wp_more_excerpt' );
+
 /**
  * Register widget area.
  *
