@@ -9,7 +9,7 @@
 
 ?>
 
-<!-- Content -->
+<!-- Post content -->
 <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="main">
 		<?php

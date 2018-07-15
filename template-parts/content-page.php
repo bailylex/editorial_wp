@@ -9,23 +9,22 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+<!-- Page content -->
+<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<header class="main">
+		<?php the_title( '<h1>', '</h1>' ); ?>
+	</header><!-- .main -->
 
-	<?php editorial_wp_post_thumbnail(); ?>
+	<span class="image main"><?php editorial_wp_post_thumbnail(); ?></span>
 
-	<div class="entry-content">
-		<?php
-		the_content();
+	<?php
+	the_content();
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'editorial_wp' ),
-			'after'  => '</div>',
-		) );
-		?>
-	</div><!-- .entry-content -->
+	wp_link_pages( array(
+		'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'editorial_wp' ),
+		'after'  => '</div>',
+	) );
+	?>
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
@@ -49,4 +48,4 @@
 			?>
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
-</article><!-- #post-<?php the_ID(); ?> -->
+</section>
