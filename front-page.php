@@ -46,6 +46,16 @@ get_header();
 		wp_reset_query();
 		?>
 	</div><!-- .posts -->
+	<!-- Pagination -->
+	<ul class="pagination">
+		<?php 
+		the_posts_pagination(array(
+			'mid_size'  => 3,
+			'prev_text' => __('Prev', 'editorial_wp'),
+			'next_text' => __('Next', 'editorial_wp')
+		)); 
+		?>
+	</ul>
 </section>
 
 <?php
