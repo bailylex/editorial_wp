@@ -11,13 +11,12 @@
 
 <section class="no-results not-found">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'editorial_wp' ); ?></h1>
+		<h1 class="page-title"><?php esc_html_e('Nothing Found', 'editorial_wp'); ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
 		<?php
-		if ( is_home() && current_user_can( 'publish_posts' ) ) :
-
+		if (is_home() && current_user_can('publish_posts')):
 			printf(
 				'<p>' . wp_kses(
 					/* translators: 1: link to WP admin new post page. */
@@ -28,23 +27,23 @@
 						),
 					)
 				) . '</p>',
-				esc_url( admin_url( 'post-new.php' ) )
+				esc_url(admin_url('post-new.php'))
 			);
 
-		elseif ( is_search() ) :
+		elseif (is_search()):
 			?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'editorial_wp' ); ?></p>
+			<p><?php esc_html_e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'editorial_wp'); ?></p>
 			<?php
-			get_search_form();
 
+			get_search_form();
 		else :
 			?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'editorial_wp' ); ?></p>
+			<p><?php esc_html_e('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'editorial_wp'); ?></p>
 			<?php
-			get_search_form();
 
+			get_search_form();
 		endif;
 		?>
 	</div><!-- .page-content -->

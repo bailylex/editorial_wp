@@ -10,45 +10,53 @@
 get_header();
 ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
-
-		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<h1 class="page-title">
+	<section>
+		<?php if (have_posts()): ?>
+			<header class="major">
+				<h2>
 					<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'editorial_wp' ), '<span>' . get_search_query() . '</span>' );
+					printf(esc_html__('Search Results for: %s', 'editorial_wp'), '<span>' . get_search_query() . '</span>');
 					?>
-				</h1>
-			</header><!-- .page-header -->
+				</h2>
+			</header><!-- .major -->
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			<!-- Posts results -->
+			<div class="posts">
+				<?php
+				while (have_posts()):
+					the_post();
+				
+					/**
+					 * Run the loop for the search to output the results.
+					 * If you want to overload this in a child theme then include a file
+					 * called content-search.php and that will be used instead.
+					 */
+					get_template_part('template-parts/content', 'search');
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+				endwhile;
 
-			endwhile;
+				wp_reset_query();
+				?>
+			</div><!-- .posts -->
 
-			the_posts_navigation();
+			<!-- Pagination -->
+			<ul class="pagination">
+				<?php 
+				the_posts_pagination(array(
+					'mid_size'  => 3,
+					'prev_text' => __('Prev', 'editorial_wp'),
+					'next_text' => __('Next', 'editorial_wp')
+				)); 
+				?>
+			</ul>
 
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
+		<?php 
+		else:
+			get_template_part('template-parts/content', 'none');
+		endif; 
 		?>
-
-		</main><!-- #main -->
-	</section><!-- #primary -->
+	</section>
 
 <?php
 get_footer();

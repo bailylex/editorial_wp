@@ -20,6 +20,7 @@
 			<header class="major">
 				<h2><?php echo esc_html('Menu'); ?></h2>
 			</header>
+
 			<!-- Menu -->
 			<?php
 			wp_nav_menu(array(
@@ -33,8 +34,9 @@
 		<!-- Archive -->
 		<section>
 			<header class="major">
-				<?php the_archive_title( '<h2>', '</h2>' ); ?>
+				<?php the_archive_title('<h2>', '</h2>'); ?>
 			</header>
+
 			<div class="mini-posts">
 				<?php 
 				// Display only 3 posts
@@ -52,19 +54,24 @@
 						<article>
 							<!-- Thumbnail -->
 							<?php if (has_post_thumbnail()) : ?>
-							<a href="<?php echo esc_url(get_permalink()); ?>" class="image"><?php the_post_thumbnail(); ?></a>
+
+								<a href="<?php echo esc_url(get_permalink()); ?>" class="image"><?php the_post_thumbnail(); ?></a>
+
 							<?php endif; ?><!-- #thumbnail -->
+
 							<p><?php the_excerpt(); ?></p>
 						</article>
 
 					<?php
 					endwhile;
 					else :
-						get_template_part( 'template-parts/content', 'none' );
+						get_template_part('template-parts/content', 'none');
 				endif;
+
 				wp_reset_postdata();
 				?>
 			</div>
+			
 			<ul class="actions">
 				<li><a href="#" class="button"><?php echo esc_html__('More', 'editorial_wp'); ?></a></li>
 			</ul>
