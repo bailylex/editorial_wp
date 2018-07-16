@@ -3339,3 +3339,13 @@ button:disabled,
   margin-top: 0;
   padding-top: 0;
 }
+
+.wp-caption {}
+.wp-caption-text {}
+.sticky {}
+.screen-reader-text {}
+.gallery-caption {}
+.bypostauthor {}
+.alignright {}
+.alignleft {}
+.aligncenter {}
