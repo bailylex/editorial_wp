@@ -102,10 +102,10 @@ add_action( 'after_setup_theme', 'editorial_wp_content_width', 0 );
 /*
  * Length of excerpt is 22 words.
  */
-function editorial_wp_excerpt_length( $length ) {
+function editorial_wp_excerpt_length($length) {
 	return 22;
 }
-add_filter( 'excerpt_length', 'editorial_wp_excerpt_length' );
+add_filter('excerpt_length', 'editorial_wp_excerpt_length');
 
 /* 
  * Change the excerpt more string
@@ -131,7 +131,7 @@ add_filter('post_thumbnail_html', 'editorial_wp_remove_img_attr');
 function editorial_wp_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'editorial_wp' ),
-		'id'            => 'sidebar-1',
+		'id'            => 'editorial-wp-sidebar',
 		'description'   => esc_html__( 'Add widgets here.', 'editorial_wp' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
